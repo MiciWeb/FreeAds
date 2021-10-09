@@ -22,6 +22,7 @@
             </div>
             <br>
             @endforeach
+            {{$add->links()}}
         </div>
     </div>
 </x-app-layout>

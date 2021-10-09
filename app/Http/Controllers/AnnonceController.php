@@ -25,9 +25,7 @@ class AnnonceController extends Controller
     }
 
     public function listeAction(){
-        $add = DB::table("annonces")->orderBy("created_at","DESC")->paginate(5);
+        $add = DB::table("annonces")->orderBy("created_at","DESC")->paginate(1);
         return view("liste")->with("add", $add);
-
-
     }
 }
