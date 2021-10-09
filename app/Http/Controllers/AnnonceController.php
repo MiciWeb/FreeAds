@@ -32,8 +32,8 @@ class AnnonceController extends Controller
     public function searchAction(Request $request){
         $search = $request->search;
         
-        $add = DB::table("annonces")->
-        where("titre","LIKE","$search%")
+        $add = DB::table("annonces")
+        ->where("titre","LIKE","$search%")
         ->orderBy("created_at","DESC")
         ->paginate(10);
 

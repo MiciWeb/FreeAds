@@ -18,7 +18,7 @@
             @endif
             @foreach($add as $ad)
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                {{$ad->photographie}}
+                <img style="width:100px;height:100px" src="images/{{$ad->photographie}}" alt="">
                 <h3 style="font-size:26px">{{$ad->titre}}</h3>
                 <h2 style="font-weight:bold">{{$ad->prix}} EU</h2>
                 <h5>{{$ad->description}}</h5>
