@@ -3,8 +3,12 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Liste des annonces') }}
         </h2>
+        <form action="{{ route('search') }}" method="post">
+        @csrf
+            <br><input type="search" name="search" id="" autocomplete="off">
+            <button type="submit">Rechercher</button>
+        </form>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @if (session()->has("success"))

@@ -21,11 +21,22 @@ class AnnonceController extends Controller
         $add->prix = $validated["prix"];
         $add->photographie = $validated["image"];
         $add->save();
-        return redirect()->route("liste")->with("success", "Votre annonce a été deposé !");
+        return redirect()->route("list")->with("success", "Votre annonce a été deposé !");
     }
 
-    public function listeAction(){
-        $add = DB::table("annonces")->orderBy("created_at","DESC")->paginate(1);
-        return view("liste")->with("add", $add);
+    public function listAction(){
+        $add = DB::table("annonces")->orderBy("created_at","DESC");
+        return view("list")->with("add", $add);
     }
+
+    public function searchAction(Request $request){
+        $search = $request->search;
+        
+        $add = DB::table("annonces")->
+        where("titre","LIKE","$search%")
+        ->orderBy("created_at","DESC")
+        ->paginate(10);
+
+        return view("list")->with("add", $add);
+    } 
 }

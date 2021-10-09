@@ -25,7 +25,9 @@ Route::get('/', function () {
 Route::get('/add', [AnnonceController::class, 'createAction'])->name('add');
 Route::post('/add', [AnnonceController::class, 'storeAction'])->name("store");
 
-Route::get('/liste', [AnnonceController::class, 'listeAction'])->name("liste");
+Route::get('/list', [AnnonceController::class, 'listAction'])->name("list");
+
+Route::post('/search', [AnnonceController::class, 'searchAction'])->name("search");
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
