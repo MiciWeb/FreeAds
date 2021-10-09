@@ -22,7 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/add', [AnnonceController::class, 'showAction'])->name('add');
+Route::get('/add', [AnnonceController::class, 'createAction'])->name('add');
+Route::post('/add', [AnnonceController::class, 'storeAction'])->name("store");
+
+Route::get('/liste', [AnnonceController::class, 'listeAction'])->name("liste");
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
