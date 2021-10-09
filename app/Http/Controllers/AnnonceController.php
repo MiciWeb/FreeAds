@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\addStore;
 use App\Models\Annonce;
+use Illuminate\Support\Facades\DB;
+
 
 class AnnonceController extends Controller
 {
@@ -23,6 +25,9 @@ class AnnonceController extends Controller
     }
 
     public function listeAction(){
-        return view("liste");
+        $add = DB::table("annonces")->orderBy("created_at","DESC")->paginate(5);
+        return view("liste")->with("add", $add);
+
+
     }
 }
