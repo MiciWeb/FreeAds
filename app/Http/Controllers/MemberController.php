@@ -18,14 +18,15 @@ class MemberController extends Controller
 
     public function sendAction(sendStore $request)
     {
-
         $id = auth()->user()->id;
         $validated = $request->validated();
+
         $add = new Message();
         $add->envoyeur = $id;
         $add->receveur = $validated["receveur"];
         $add->contenu = $validated["contenu"];
         $add->save();
+
         return redirect()->route("receive")->with("success", "Votre message a été envoyé !");
     }
 
