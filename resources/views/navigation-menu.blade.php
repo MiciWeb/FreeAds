@@ -26,18 +26,26 @@
                         {{ __('Vos annonces') }}
                     </x-jet-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-
                     <x-jet-nav-link :active="request()->routeIs('search')">
-
                         <form action="{{ route('search') }}" method="post">
                             @csrf
                             <button type="submit">Rechercher</button>
-
                         </form>
                     </x-jet-nav-link>
+                </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('member') }}" :active="request()->routeIs('member')">
+                    <i class="fa fa-send"></i>
+                    </x-jet-nav-link>
+                </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('receive') }}" :active="request()->routeIs('receive')">
+                        <i class="fa fa-envelope"></i>
+                    </x-jet-nav-link>
                 </div>
             </div>
 

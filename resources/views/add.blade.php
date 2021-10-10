@@ -17,7 +17,7 @@
                     <br> <br> <label for="prix">Prix</label>
                     <input type="text" class="form-control" name="prix">
                     <br> <br> <label for="title">Photos</label>
-                    <input type="file" name="image" id="">
+                    <input type="file" name="image" value="iphone.jpg" id="">
                     <br>
                     <br>
                     <button type="submit" class="btn btn-primary">Soumettre mon annonce</button>

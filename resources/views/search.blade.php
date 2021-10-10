@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Liste des annonces') }}
+            {{ __('Rechercher une annonce') }}
         </h2>
         <div class="filter" style="display:flex">
             <select name="filters" id="filter" value="ok" form="form" style="transform: translateY(25px);margin-right: 10PX;padding-left: -8px;line-height: 5p;height: 43px;">

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AnnonceController;
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,12 @@ Route::get('/delete/{id}', [AnnonceController::class, 'deleteAction'])->name("de
 Route::get('/edit/{id}', [AnnonceController::class, 'editAction'])->name("edit");
 
 Route::post('/edit', [AnnonceController::class, 'editSaveAction'])->name("edit-save");
+
+Route::get('/member', [MemberController::class, 'showAction'])->name("member");
+
+Route::post('/send', [MemberController::class, 'sendAction'])->name("send");
+
+Route::get('/receive', [MemberController::class, 'receiveAction'])->name("receive");
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
