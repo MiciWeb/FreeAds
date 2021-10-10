@@ -29,7 +29,7 @@ class AnnonceController extends Controller
 
     public function listAction()
     {
-        $add = DB::table("annonces")->orderBy("created_at", "DESC")->paginate(100);
+        $add = DB::table("annonces")->orderBy("created_at", "DESC")->paginate(1);
         return view("list")->with("add", $add);
     }
 
@@ -37,12 +37,23 @@ class AnnonceController extends Controller
     {
         $search = $request->search;
 
-        $add = DB::table("annonces")
-            ->where("titre", "LIKE", "$search%")
-            ->orderBy("created_at", "DESC")
-            ->paginate(100);
+        $filter = $_POST["filters"];
+        if (empty($filter)) {
+            $add = DB::table("annonces")
+                ->where("titre", "LIKE", "$search%")
+                ->orderBy("created_at", "DESC")
+                ->paginate(100);
+        }
+        // else if ($filter == )
+        
+        else {
+            $add = DB::table("annonces")
+                ->where("titre", "LIKE", "$search%")
+                ->orderBy("created_at", "$filter")
+                ->paginate(100);
+        }
 
-        return view("list")->with("add", $add);
+        return view("search")->with("add", $add);
     }
 
     public function deleteAction($id)
