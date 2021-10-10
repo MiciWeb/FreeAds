@@ -4,7 +4,7 @@
             {{ __('Liste des annonces') }}
         </h2>
         <form action="{{ route('search') }}" method="post">
-        @csrf
+            @csrf
             <br><input type="search" name="search" id="" autocomplete="off">
             <button type="submit">Rechercher</button>
         </form>
@@ -18,7 +18,11 @@
             @endif
             @foreach($add as $ad)
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <img style="width:100px;height:100px" src="images/{{$ad->photographie}}" alt="">
+                <form action="{{route('delete',['id'=>$ad->id])}}" method="GET">
+                    @csrf
+                    <button type="submit" style="float:right;margin:10px"><i class="fa fa-trash"></i></button>
+                </form>
+                <img style="width:100px;height:100px;float:left" src="images/{{$ad->photographie}}" alt="">
                 <h3 style="font-size:26px">{{$ad->titre}}</h3>
                 <h2 style="font-weight:bold">{{$ad->prix}} EU</h2>
                 <h5>{{$ad->description}}</h5>

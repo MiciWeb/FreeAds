@@ -29,6 +29,8 @@ Route::get('/list', [AnnonceController::class, 'listAction'])->name("list");
 
 Route::post('/search', [AnnonceController::class, 'searchAction'])->name("search");
 
+Route::get('/delete/{id}', [AnnonceController::class, 'deleteAction'])->name("delete");
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

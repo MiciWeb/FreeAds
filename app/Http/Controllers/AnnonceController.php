@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class AnnonceController extends Controller
 {
-    public function createAction(){
+    public function createAction()
+    {
         return view('add');
     }
-    public function storeAction(addStore $request){
+    public function storeAction(addStore $request)
+    {
         $validated = $request->validated();
         $add = new Annonce();
         $add->titre = $validated["titre"];
@@ -24,19 +26,28 @@ class AnnonceController extends Controller
         return redirect()->route("list")->with("success", "Votre annonce a été deposé !");
     }
 
-    public function listAction(){
-        $add = DB::table("annonces")->orderBy("created_at","DESC");
+    public function listAction()
+    {
+        $add = DB::table("annonces")->orderBy("created_at", "DESC")->paginate(100);
         return view("list")->with("add", $add);
     }
 
-    public function searchAction(Request $request){
+    public function searchAction(Request $request)
+    {
         $search = $request->search;
-        
+
         $add = DB::table("annonces")
-        ->where("titre","LIKE","$search%")
-        ->orderBy("created_at","DESC")
-        ->paginate(10);
+            ->where("titre", "LIKE", "$search%")
+            ->orderBy("created_at", "DESC")
+            ->paginate(100);
 
         return view("list")->with("add", $add);
-    } 
+    }
+
+    public function deleteAction($id)
+    {
+        $post = DB::table("annonces")->where('id', $id);
+        $post->delete();
+        return redirect('list');
+    }
 }
