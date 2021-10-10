@@ -37,16 +37,21 @@ class AnnonceController extends Controller
     {
         $search = $request->search;
 
-        $filter = $_POST["filters"];
+        if (isset($_POST["filters"])) {
+            $filter = $_POST["filters"];
+        }
         if (empty($filter)) {
             $add = DB::table("annonces")
                 ->where("titre", "LIKE", "$search%")
                 ->orderBy("created_at", "DESC")
                 ->paginate(100);
-        }
-        // else if ($filter == )
-        
-        else {
+        } else if ($filter[0] == "2") {
+            $filter = substr($filter,1);
+            $add = DB::table("annonces")
+                ->where("titre", "LIKE", "$search%")
+                ->orderBy("prix", "$filter")
+                ->paginate(100);
+        } else {
             $add = DB::table("annonces")
                 ->where("titre", "LIKE", "$search%")
                 ->orderBy("created_at", "$filter")

@@ -8,8 +8,8 @@
                 <option value="">trier par</option>
                 <option value="DESC">plus récents</option>
                 <option value="ASC">plus anciens</option>
-                <!-- <option value="opel">Opel</option> -->
-                <!-- <option value="audi">Audi</option> -->
+                <option value="2DESC">prix decroissant</option>
+                <option value="2ASC">prix croissant</option>
             </select>
             <form action="{{ route('search') }}" method="post" id="form">
                 @csrf
