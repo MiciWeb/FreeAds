@@ -50,4 +50,23 @@ class AnnonceController extends Controller
         $post->delete();
         return redirect('list');
     }
+
+    public function editAction($id){
+        $posts = DB::table("annonces")->where('id', $id)->paginate(1);
+        return view("edit")->with("posts", $posts);
+    }
+
+    public function editSaveAction(Request $request){
+
+
+        $this->validate($request, [
+            "titre" => "required",
+            "description" => "required",
+            "prix" => ["integer", "required"],
+            "image" => "required"
+        ]);
+
+        $search = $request->search;
+        print_r($search);
+    }
 }

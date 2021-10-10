@@ -20,7 +20,11 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <form action="{{route('delete',['id'=>$ad->id])}}" method="GET">
                     @csrf
-                    <button type="submit" style="float:right;margin:10px"><i class="fa fa-trash"></i></button>
+                    <button type="submit" style="float:right;margin:8px 10px"><i class="fa fa-trash"></i></button>
+                </form>
+                <form action="{{route('edit',['id'=>$ad->id])}}" method="GET">
+                    @csrf
+                    <button type="submit" style="float:right;margin:8px 5px"><i class="fa fa-edit"></i></button>
                 </form>
                 <img style="width:100px;height:100px;float:left" src="images/{{$ad->photographie}}" alt="">
                 <h3 style="font-size:26px">{{$ad->titre}}</h3>

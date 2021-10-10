@@ -18,6 +18,15 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <style>
+        .btn-primary{
+            border: 1px solid;
+            border-radius: 12px;
+            padding: 10px;
+            color: white;
+            background-color: #6776F4;
+        }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />

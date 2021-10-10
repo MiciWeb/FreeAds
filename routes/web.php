@@ -31,6 +31,10 @@ Route::post('/search', [AnnonceController::class, 'searchAction'])->name("search
 
 Route::get('/delete/{id}', [AnnonceController::class, 'deleteAction'])->name("delete");
 
+Route::get('/edit/{id}', [AnnonceController::class, 'editAction'])->name("edit");
+
+Route::post('/edit', [AnnonceController::class, 'editSaveAction'])->name("edit-save");
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
