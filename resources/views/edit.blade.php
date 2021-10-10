@@ -11,6 +11,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg" style="padding:30px">
                 <form method="POST" action="{{ route('edit-save') }}">
                     @csrf
+                    <input type="hidden" name="id" value="{{$post->id}}">
                     <label for="title">Titre</label>
                     <input type="text" class="form-control" name="titre" value="{{$post->titre}}">
                     <br> <br> <label for="description">Description</label>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\addStore;
+use App\Http\Requests\editStore;
 use App\Models\Annonce;
 use Illuminate\Support\Facades\DB;
 
@@ -51,22 +52,20 @@ class AnnonceController extends Controller
         return redirect('list');
     }
 
-    public function editAction($id){
+    public function editAction($id)
+    {
         $posts = DB::table("annonces")->where('id', $id)->paginate(1);
         return view("edit")->with("posts", $posts);
     }
 
-    public function editSaveAction(Request $request){
+    public function editSaveAction(editStore $request)
+    {
 
-
-        $this->validate($request, [
-            "titre" => "required",
-            "description" => "required",
-            "prix" => ["integer", "required"],
-            "image" => "required"
-        ]);
-
-        $search = $request->search;
-        print_r($search);
+        $validated = $request->validated();
+        DB::update(
+            'update annonces set titre = ?,description=?,prix=?,photographie=? where id = ?',
+            [$validated["titre"], $validated["description"], $validated["prix"], $validated["image"], $validated["id"]]
+        );
+        return redirect('list');
     }
 }
