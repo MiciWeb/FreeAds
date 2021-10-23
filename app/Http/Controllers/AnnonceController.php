@@ -29,7 +29,7 @@ class AnnonceController extends Controller
 
     public function listAction()
     {
-        $add = DB::table("annonces")->orderBy("created_at", "DESC")->paginate(1);
+        $add = DB::table("annonces")->orderBy("created_at", "DESC")->paginate(3);
         return view("list")->with("add", $add);
     }
 

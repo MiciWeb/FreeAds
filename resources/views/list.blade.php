@@ -22,7 +22,7 @@
                     <button type="submit" style="float:right;margin:8px 5px"><i class="fa fa-edit"></i></button>
                 </form>
                 <img style="width:100px;height:100px;float:left" src="images/{{$ad->photographie}}" alt="">
-                <div style="transform:translateX(10px);width:100px">
+                <div style="transform:translateX(6px)">
                     <h3 style="font-size:26px">{{$ad->titre}}</h3>
                     <h2 style="font-weight:bold">{{$ad->prix}} EU</h2>
                     <h5>{{$ad->description}}</h5>
