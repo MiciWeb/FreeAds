@@ -1,5 +1,3 @@
-[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](http://forthebadge.com)
-
 # Goal of the project
 The main goal of the project is to build the website of an ads announces website with laravel.
 
