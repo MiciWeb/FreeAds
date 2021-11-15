@@ -1,5 +1,5 @@
 # Goal of the project
-The main goal of the project is to build the website of an ads announces website with laravel.
+The main goal of the project was to build an advertisement website with laravel.
 
 ## How i build this project
 * I used only laravel and his starterkit [Jetstream](https://jetstream.laravel.com/1.x/introduction.html) to build this website.
