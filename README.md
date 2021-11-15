@@ -3,8 +3,8 @@ The main goal of the project is to build the website of an ads announces website
 
 ## How i build this project
 * I used only laravel and his starterkit [Jetstream](https://jetstream.laravel.com/1.x/introduction.html) to build this website.
-* The website have an login and register authentification where you can edit or delete your account.
-* You can post edit or delete announces that are saved to the sql database then see all the announces and search them by differents filters.
+* The website have an login and register [authentification](https://raw.githubusercontent.com/MiciWeb/FreeAds/master/profil.png) where you can edit or delete your account.
+* You can post edit or delete [announces](https://raw.githubusercontent.com/MiciWeb/FreeAds/master/mes-annonces.png) that are saved to the sql database then see all the announces and [search](https://raw.githubusercontent.com/MiciWeb/FreeAds/master/recherche.png) them by differents filters.
 * And there is a mini chat where you can talk with the others members.
 
 ## Launch the project
